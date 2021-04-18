@@ -1,0 +1,45 @@
+{% extends "site/layouts.njk" %}
+
+{% block filter %}
+{% include "site/parts/filter.njk" %}
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        {% if filter %}
+        <h1 id="searching-filter">Buscando por "{{filter}}"</h1>
+        {% endif %}
+
+        <section class="introduction-recipes extended">
+
+            {% for recipe in recipes %}
+            <div class="recipe-card">
+                <img class="recipe-img" id="{{recipe.id}}" src="{{recipe.files_path[0]}}" alt="{{recipe.title}}">
+                <p class="recipe-name">{{recipe.title}}</p>
+                {% for chef in chefs %}
+                {% if chef.id == recipe.chef_id %}
+                <p class="creator-name">Por {{chef.name}}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+             {% for recipe in recipes %}
+            <div class="recipe-card">
+                <img class="recipe-img" id="{{recipe.id}}" src="{{recipe.files_path[0]}}" alt="{{recipe.title}}">
+                <p class="recipe-name">{{recipe.title}}</p>
+                {% for chef in chefs %}
+                {% if chef.id == recipe.chef_id %}
+                <p class="creator-name">Por {{chef.name}}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+            
+        </section>
+    </main>
+
+     
+
+    {% endblock %}

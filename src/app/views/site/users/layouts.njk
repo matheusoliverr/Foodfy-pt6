@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Foodfy</title>
+    
+    {% include "site/parts/styles.njk" %}
+    <script src="/scripts.js" defer></script>
+    <script src="/images.js" defer></script>
+</head>
+
+<body class="user-fields">
+    <header class="login-header">
+        <a class="logo login" href="/main"><img src="/logo.png" alt=""></a>
+        {% include "site/parts/alert-messages.njk" %}
+    </header>
+
+    <main class="login-main">
+        
+    {% block main %}
+    {% endblock main %}
+
+    </main>
+
+</body>
